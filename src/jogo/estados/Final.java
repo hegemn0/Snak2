@@ -58,6 +58,7 @@ public class Final extends Estado {
                     Jogo.setEstado(new Execucao());
                     break;            
                 case KeyEvent.VK_ESCAPE:
+                    Jogo.registrarNome(caixaTexto.getNome());
                     Jogo.setEstado(new MenuPrincipal());
                     break;
             }
