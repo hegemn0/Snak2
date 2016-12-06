@@ -16,7 +16,7 @@ public class BancoDeDados {
     private static final String NOME_BANCODEDADOS = "ranking.db";
     private static final String DIR_BANCODEDADOS = "bancodedados";
     private static final String LOCAL_BANCODEDADOS = DIR_BANCODEDADOS + "/" + NOME_BANCODEDADOS;
-    private static final String CRIAR_TB_RANKING = "CREATE TABLE `tb_ranking` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `nome` TEXT NOT NULL, `pontos` INTEGER NOT NULL );";
+    private static final String CRIAR_TB_RANKING = "CREATE TABLE `tb_ranking` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `nome` TEXT NOT NULL, `pontos` INTEGER NOT NULL ); INSERT INTO tb_ranking (nome, pontos) VALUES ('AAA', 100), ('AAA', 90), ('AAA', 80), ('AAA', 70), ('AAA', 60), ('AAA', 50), ('AAA', 40), ('AAA', 30), ('AAA', 20), ('AAA', 10);";
     private static final String SELECIONAR_TB_RANKING = "SELECT * FROM `tb_ranking` ORDER BY `pontos` DESC LIMIT 0, 10;";
     private static final String INSERIR_TB_RANKING = "INSERT INTO `tb_ranking` (`nome`, `pontos`) VALUES(?, ?);";
     private static final String VERIFICAR_TB_RANKING = "SELECT name FROM sqlite_master WHERE type='table' AND name='tb_ranking'";
