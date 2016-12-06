@@ -96,10 +96,7 @@ public class Execucao extends Estado {
     
     @Override
     public void onKeyPress(KeyEvent e) {
-        switch(e.getKeyCode()) {
-            case KeyEvent.VK_O: {
-                jogador.setGameOver(true);
-            } break;            
+        switch(e.getKeyCode()) {          
             case KeyEvent.VK_SPACE: {
                 pausar();
             } break;
