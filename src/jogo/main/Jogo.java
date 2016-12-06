@@ -12,11 +12,14 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import jogo.utilitarios.AudioID;
 import jogo.utilitarios.DificuldadeID;
+import jogo.utilitarios.Recursos;
 
 @SuppressWarnings("serial")
 public class Jogo extends JPanel implements Runnable {
@@ -41,6 +44,8 @@ public class Jogo extends JPanel implements Runnable {
         
     private static Controle controle;
     private static volatile Estado estado;
+    private final URL localIcone = getClass().getResource("/jogo/recursos/imagens/cobra_cabeca_01.png");
+    private ImageIcon icone = new ImageIcon(localIcone);
     
     private JFrame frame;
     
@@ -255,6 +260,8 @@ public class Jogo extends JPanel implements Runnable {
         frame.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - largura/2, Toolkit.getDefaultToolkit().getScreenSize().height/2 - altura/2);
         frame.setResizable(false);      
         frame.add(this);
+        frame.setTitle("SNAKE 2");
+        frame.setIconImage(icone.getImage());
         frame.pack();
         frame.setVisible(true);        
     }      

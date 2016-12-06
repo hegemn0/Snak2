@@ -193,7 +193,7 @@ public class Recursos {
 
     public static BufferedImage[] getTexturaCobra() {
         return texturaCobra;
-    }
+    }    
 
     public static BufferedImage getBackgroundMenuPrincipal() {
         return texturaBackgroundMenu;
