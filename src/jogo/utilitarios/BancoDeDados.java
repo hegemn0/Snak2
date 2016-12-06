@@ -113,8 +113,7 @@ public class BancoDeDados {
         try {                 
             Statement instrucaoSQL = conexao.createStatement();
             instrucaoSQL.execute(CRIAR_TB_RANKING);
-            ResultSet resultado = instrucaoSQL.executeQuery(PREENCHER_TB_RANKING);
-            System.out.println(resultado);
+            instrucaoSQL.executeQuery(PREENCHER_TB_RANKING);
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.toString());
         } finally {
