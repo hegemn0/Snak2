@@ -1,5 +1,6 @@
 package jogo.utilitarios;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,8 @@ public class BancoDeDados {
 
     private static Connection conexao;    
     private static final String NOME_BANCODEDADOS = "ranking.db";
-    private static final String LOCAL_BANCODEDADOS = NOME_BANCODEDADOS;
+    private static final String DIR_BANCODEDADOS = "bancodedados";
+    private static final String LOCAL_BANCODEDADOS = DIR_BANCODEDADOS + "/" + NOME_BANCODEDADOS;
     private static final String CRIAR_TB_RANKING = "CREATE TABLE `tb_ranking` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `nome` TEXT NOT NULL, `pontos` INTEGER NOT NULL );";
     private static final String SELECIONAR_TB_RANKING = "SELECT * FROM `tb_ranking` ORDER BY `pontos` DESC LIMIT 0, 10;";
     private static final String INSERIR_TB_RANKING = "INSERT INTO `tb_ranking` (`nome`, `pontos`) VALUES(?, ?);";
@@ -73,6 +75,10 @@ public class BancoDeDados {
 
     private static void conectar() {
         try {
+            if(!diretorioBancoDeDadosCriado()) {
+                criarDiretorioBancoDeDados();
+            }
+            
             if(!conectado()) {
                 Class.forName("org.sqlite.JDBC");
                 conexao = DriverManager.getConnection("jdbc:sqlite:" + LOCAL_BANCODEDADOS);    
@@ -119,6 +125,20 @@ public class BancoDeDados {
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.toString());
         }
+    }
+
+    private static boolean diretorioBancoDeDadosCriado() {
+        File diretorioBanco = new File(DIR_BANCODEDADOS);
+        if(diretorioBanco.exists()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static void criarDiretorioBancoDeDados() {
+        File diretorioBancoDeDados = new File(DIR_BANCODEDADOS);
+        diretorioBancoDeDados.mkdir();      
     }
     
 }
