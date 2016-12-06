@@ -10,6 +10,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -251,6 +252,7 @@ public class Jogo extends JPanel implements Runnable {
         
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - largura/2, Toolkit.getDefaultToolkit().getScreenSize().height/2 - altura/2);
         frame.setResizable(false);      
         frame.add(this);
         frame.pack();
